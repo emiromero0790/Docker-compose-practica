@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de incidencias</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Control de incidencias</h1>
+    <p>Consultas al listado: <strong id="contador">-</strong> · Origen de datos: <strong id="origen">-</strong></p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Nueva incidencia</h2>
+      <form id="formulario">
+        <label>Título
+          <input name="titulo" required minlength="3" maxlength="120">
+        </label>
+        <label>Área
+          <input name="area" required minlength="2" maxlength="80" placeholder="Ej. Laboratorio 2">
+        </label>
+        <label>Prioridad
+          <select name="prioridad">
+            <option value="baja">Baja</option>
+            <option value="media" selected>Media</option>
+            <option value="alta">Alta</option>
+          </select>
+        </label>
+        <label class="completo">Descripción
+          <textarea name="descripcion" maxlength="500" rows="3"></textarea>
+        </label>
+        <button type="submit">Registrar incidencia</button>
+      </form>
+    </section>
+
+    <div id="mensaje" class="mensaje oculto"></div>
+
+    <section class="card">
+      <h2>Incidencias <button id="recargar" type="button">Actualizar lista</button></h2>
+      <table id="tabla">
+        <thead>
+          <tr><th>#</th><th>Incidencia</th><th>Área</th><th>Prioridad</th><th>Estado</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
